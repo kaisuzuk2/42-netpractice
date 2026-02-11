@@ -24,7 +24,7 @@ As you progress, the configurations become more complex, involving the connectio
 5. Check the network configuration of each level and set the IP addresses and routing so that communication is established.
 Press "Check again" to verify if your settings are correct. Once a level is cleared, a "Next" button will appear, allowing you to proceed to the next level.
 
-## Exxporting Configrations
+## Exporting Configrations
 After completing each level, you can download your current network settings by clicking the "Get my config" button. A separate configuration file will be generated for each level.
 
 ## Submission Requirements
