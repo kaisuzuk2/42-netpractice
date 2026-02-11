@@ -37,7 +37,7 @@ Place these files in the root of your repository. Additionally, submit this READ
 
 The OSI Reference Model is a guideline for designing communication protocols, established by the ISO. It simplifies complex network protocols by dividing the necessary communication functions into [7 layers](https://learningnetwork.cisco.com/s/article/osi-model-reference-chart). A protocol is a set of rules for communication; devices with different protocols cannot communicate with each other.
 
-TCP/IP is the suite of protocols actually used on the internet. Unlike the OSI model, it is divided into [4 layers](TCP/IP is the suite of protocols actually used on the internet. Unlike the OSI model, it is divided into 4 layers. TCP/IP became the dominant model largely due to its early support by UNIX systems.). TCP/IP became the dominant model largely due to its early support by UNIX systems.
+TCP/IP is the suite of protocols actually used on the internet. Unlike the OSI model, it is divided into [4 layers](https://www.cisco.com/c/ja_jp/support/docs/ip/routing-information-protocol-rip/13769-5.html). TCP/IP became the dominant model largely due to its early support by UNIX systems.
 
 When data is sent, encapsulation occurs. Each layer adds information necessary for transmission in the form of a "header." For example:
 - The Network Layer adds the destination IP address.
@@ -84,7 +84,7 @@ Routing is performed using Longest Prefix Match. If no specific route matches, t
 
 - Mastering TCP/IP: Introductory Level
 - Isshuukande CCNA no kiso ga manaberu hon 
-- [Network(CCNA) Learning for Aspiring Infrastructure Engineers(Youtube)] (https://www.youtube.com/playlist?list=PLXXalsdlzX-J7AUuw2zSHit5nRUZ3eDdz)
+- [Network(CCNA) Learning for Aspiring Infrastructure Engineers(Youtube)](https://www.youtube.com/playlist?list=PLXXalsdlzX-J7AUuw2zSHit5nRUZ3eDdz)
 
 
 # AI
