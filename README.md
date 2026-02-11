@@ -1,97 +1,92 @@
 *This project has been created as part of the 42 curriculum by kaisuzuk*
 
 # Description
-netpracticeは、ネットワークの仕組みを理解するための練習である。
-IPアドレスとサブネットマスク、ルーティングを適切に設定し、ホスト間の通信を成立させることが、この課題のゴールである。
+NetPractice is an exercise designed to help you understand the inner workings of networking.
+The goal of this project is to establish successful communication between hosts by appropriately configuring IP addresses, subnet masks, and routing tables.
 
-本課題は、レベル1からレベル10までで構成されている。
-レベルが進むにつれて、ネットワーク同士を接続させるなど、設定が複雑になる。
-すべてのレベルにおいて、適切なIPアドレスとサブネットマスクを設定することが求められる。
+The project consists of 10 levels (Level 1 to Level 10).
+As you progress, the configurations become more complex, involving the connection of multiple different networks. In every level, you are required to set the correct IP addresses and subnet masks to ensure connectivity.
 
 # Instructions
-## 実行方法
-1. プロジェクトのページから、[net_practice.1.9.tgz](https://cdn.intra.42.fr/document/document/46101/net_practice.1.9.tgz)をダウンロードする。
 
-2. ダウンロードしたファイルを解凍する。
+## How to Run
 
-3. フォルダ内にある、run.shを実行する。
+1. Download [net_practice.1.9.tgz](https://cdn.intra.42.fr/document/document/46101/net_practice.1.9.tgz) from the project page.
 
-3. ブラウザでページが開くので、自身の42IDを入力する。
-「Training」を選択すると、レベル1からレベル10までの問題が順番に出題される。
-「Evaluation」を選択すると、レベル6から10の問題がランダムで出題される。
+2. Extract the downloaded file
 
-4. 各レベルのネットワーク構成を確認し、通信が成立するように、IPアドレスやルーティングを設定する。
-「Check again」を押して、設定が正しいかどうかを検証する。
-レベルをクリアすると、「Next」ボタンが出現する。次のレベルに進むことができる。
+3. Execute run.sh located inside the folder.
 
-## 設定の書き出し
-各レベル完了後、「Get my config」ボタンから、現在のネットワーク設定をダウンロードできる。
-ダウンロードされる設定ファイルは、各レベルごとに一つずつ生成される。
+4. A page will open in your browser. Enter your 42 ID.
+- Selecting "Training" will present the problems from Level 1 to Level 10 in order.
+- Selecting "Evaluation" will present random problems chosen from Levels 6 to 10.
 
-## 提出要件
-レベル1からレベル10の、合計10個のconfigファイルを提出する。
-それらのファイルは、リポジトリのルートに配置する。
-加えて、このREADME.mdファイルを提出する。
+5. Check the network configuration of each level and set the IP addresses and routing so that communication is established.
+Press "Check again" to verify if your settings are correct. Once a level is cleared, a "Next" button will appear, allowing you to proceed to the next level.
+
+## Exxporting Configrations
+After completing each level, you can download your current network settings by clicking the "Get my config" button. A separate configuration file will be generated for each level.
+
+## Submission Requirements
+Submit a total of 10 config files (one for each level from 1 to 10).
+Place these files in the root of your repository. Additionally, submit this README.md file.
 
 # Resources
 
-## OSI参照モデルとTCP/IP
-OSI参照モデルとは、通信プロトコルを設計するときの指標である。ISOによって定められた。
-OSI参照モデルは、通信に必要な機能を[7つの階層](https://learningnetwork.cisco.com/s/article/osi-model-reference-chart)に分けて、複雑なネットワーク・プロトコルを単純化するためのモデルである。
-プロトコルとは、通信に関する決めごとである。プロトコルが異なる機器同士では、通信ができない。
+## OSI Reference Model and TCP/IP
 
-TCP/IPも、OSI参照モデルと同様で、ネットワーク・プロトコルの一種である。
-OSI参照モデルにおける、アプリケーション層、プレゼンテーション層、セッション層をアプリケーション層、データリンク層と物理層を物理層として、[4つの層](https://www.cisco.com/c/ja_jp/support/docs/ip/routing-information-protocol-rip/13769-5.html)に分けられている。
-TCP/IPは、UNIXがサポートしたことを背景として、現在最も普及しているモデルである。
+The OSI Reference Model is a guideline for designing communication protocols, established by the ISO. It simplifies complex network protocols by dividing the necessary communication functions into [7 layers](https://learningnetwork.cisco.com/s/article/osi-model-reference-chart). A protocol is a set of rules for communication; devices with different protocols cannot communicate with each other.
 
-NetPracticeでは、OSI参照モデルのうち主に第3層（ネットワーク層）を中心に扱い、
-IPアドレッシング、サブネットマスク、ルーティング、デフォルトゲートウェイといった
-TCP/IPモデルにおけるインターネット層の概念を学習する。
-また、第2層（データリンク層）に対応するスイッチの挙動や、
-同一ネットワーク内通信の考え方も重要な要素となる。
+TCP/IP is the suite of protocols actually used on the internet. Unlike the OSI model, it is divided into [4 layers](TCP/IP is the suite of protocols actually used on the internet. Unlike the OSI model, it is divided into 4 layers. TCP/IP became the dominant model largely due to its early support by UNIX systems.). TCP/IP became the dominant model largely due to its early support by UNIX systems.
 
-## TCP/IPアドレッシング
+When data is sent, encapsulation occurs. Each layer adds information necessary for transmission in the form of a "header." For example:
+- The Network Layer adds the destination IP address.
+- The Transport Layer adds control information to ensure communication reliability.
+- The Data Link Layer adds MAC addresses.
+On the receiving side, decapsulation occurs. Each layer removes its respective header until the data is finally delivered to the application.
 
-TCP/IP アドレッシングは、IPアドレスとサブネットマスクを用いて
-通信相手のネットワークとホストを識別する仕組みである。
-IPアドレスは、ネットワーク部とホスト部に分割され、
-サブネットマスクによってその境界が定義される。
+In NetPractice, you will primarily focus on the 3rd layer of the OSI model (Network Layer) and learn concepts from the Internet Layer of the TCP/IP model, such as IP addressing, subnet masks, routing, and default gateways. Additionally, the behavior of Switches (corresponding to Layer 2/Data Link Layer) and the logic of communication within the same network are vital elements.
 
-同一ネットワーク内の通信では、宛先が同じネットワーク部を持つかどうかを
-ビット演算によって判定し、ルータを介さずに直接通信が行われる。
-一方、異なるネットワーク宛の通信では、デフォルトゲートウェイに
-パケットが転送され、ルーティング処理が行われる。
+## TCP/IP Addressing
 
-## サブネットマスク
-サブネットマスクは、IPアドレスのネットワーク部とホスト部の境界を決める32ビットの数値である。
-IPアドレスとセットで使用される。
-ネットワークを分割して管理したり、コンピューターが同じネットワークに属しているかを判断したりするために必要な設定情報である。
+TCP/IP addressing is a system used to identify the network and the specific host of a communication partner using IP addresses and subnet masks. An IP address is divided into a Network Portion and a Host Portion, with the boundary defined by the Subnet Mask.
 
-## デフォルトゲートウェイ
-デフォルトゲートウェイは、ネットワークの出入り口に相当する機器(ルーター)のIPである。
-宛先が、自分と同じネットワーク内に存在しない場合、自分のネットワーク内のルーターに送信する。
-ルーターを介して別のネットワークにデータが送信される。
+In communication within the same network, the device determines via bitwise operations whether the destination shares the same network portion. If it does, communication happens directly without a router. For communication to a different network, packets are forwarded to the Default Gateway for routing.
 
-## LANとWAN
-コンピュータネットワークは、接続範囲に応じて二つに分けることができる。LAN(Local Area Network)とWAN(Wide Area Network)の二つである。
-LANとは、建物または敷地内で構築された構内通信網である。
-WANとは、広い範囲にわたって構築されたネットワークである。一般的には、電気通信事業者が提供する回線を使用して構築されたネットワークを指す。
+## Subnet Mask
 
-## ルーターとスイッチ
+A subnet mask is a 32-bit value that determines the boundary between the network portion and the host portion of an IP address. It is always used in conjunction with an IP address. It is essential for dividing and managing networks and for a computer to determine if another device belongs to the same network.
 
-### スイッチ
-スイッチは、LAN内で、複数のPC、プリンタなどの機器に接続し、通信データを目的のノードにだけ効率良く伝奏するネットワーク機器である。
-内部で、自分のポートと接続されているノードのMACアドレスを管理するため、MACアドレステーブルを持つ。
-入ってきたデータの宛先MACアドレスが、自身のテーブルに存在しない場合は、受信したポート以外のすべてのノードに対してデータを送信する。
+## Default Gateway
 
-### ルーター
-ルーターは、異なるネットワークのノード同士の通信を実現する機器である。
-内部にルーティングテーブルを持つ。
-データの宛先IPアドレスを確認し、ルーティングテーブルに応じた場所へ転送する。
-ルーティングは最長一致により行われ、一致する経路がない場合はデフォルトルートが用いられる。
-デフォルトルートは 0.0.0.0/0 として設定され、どのネットワークにも一致しない場合の経路として使用される。
+The default gateway is the IP address of the device (router) that serves as the access point for a network. If a destination does not exist within the local network, the device sends the data to the router in its own network. The router then forwards the data toward the destination network.
 
-## 参考
-1. マスタリングTCP/IP　入門編
-2. 一週間でCCNAの基礎が学べる本
+## LAN and WAN
 
+Computer networks can be categorized into two types based on their scale: LAN (Local Area Network) and WAN (Wide Area Network).
+
+- LAN: A private network constructed within a single building or site.
+- WAN: A network constructed over a wide geographical area, generally using lines provided by telecommunications carriers.
+
+## Routers and Switches
+
+### Switch
+
+A switch connects multiple devices (PCs, printers, etc.) within a LAN and efficiently transmits data only to the intended destination node. It maintains a MAC Address Table to track which MAC address is connected to which port. If a destination MAC address is not in the table, the switch performs "flooding," sending the data to all ports except the one it arrived on.
+
+### Router
+
+A router is a device that enables communication between nodes on different networks. It maintains a Routing Table. The router checks the destination IP address of incoming data and forwards it to the appropriate location based on the table.
+Routing is performed using Longest Prefix Match. If no specific route matches, the Default Route (0.0.0.0/0) is used as a "path of last resort."
+
+
+# References
+
+- Mastering TCP/IP: Introductory Level
+- Isshuukande CCNA no kiso ga manaberu hon 
+- [Network(CCNA) Learning for Aspiring Infrastructure Engineers(Youtube)] (https://www.youtube.com/playlist?list=PLXXalsdlzX-J7AUuw2zSHit5nRUZ3eDdz)
+
+
+# AI
+- Used as a self-check to test my understanding.
+- Used for text translation.
